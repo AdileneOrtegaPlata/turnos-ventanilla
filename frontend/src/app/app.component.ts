@@ -9,7 +9,7 @@ type Stats = { total:number; waiting:number; serving:number; completed:number };
 
 @Component({ selector:'app-root', standalone:true, imports:[CommonModule,FormsModule], templateUrl:'./app.component.html' })
 export class AppComponent implements OnInit {
-  private api='http://localhost:8000/api';
+  private api='/api';
   turns:Turn[]=[]; counters:Counter[]=[]; stats:Stats={total:0,waiting:0,serving:0,completed:0};
   services=['Depósitos','Retiros','Aclaraciones','Pagos','Atención preferente'];
   name=''; service=this.services[0]; priority=false; appointmentMode=false; appointment=''; notice=''; busy=false;
