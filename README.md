@@ -63,7 +63,7 @@ Abre `http://localhost:4200`. La interfaz consulta la API local cada diez segund
 
 El archivo `vercel.json` configura el frontend Angular y la API FastAPI como servicios bajo el mismo dominio: `/api/*` se enruta al backend y el resto del tráfico al frontend. El proyecto utiliza Vercel Services en beta.
 
-La base actual es SQLite local y sirve para pruebas/demo. El almacenamiento del sistema de archivos de una función serverless no es persistente; para conservar turnos en producción, cambia SQLite por una base de datos administrada y configura su cadena de conexión como variable de entorno.
+La base actual es SQLite local y sirve para pruebas/demo. En Vercel usa `/tmp/turnos.db` para que la API pueda iniciar, pero sus datos son temporales y pueden reiniciarse entre ejecuciones. Para conservar turnos en producción, cambia SQLite por una base de datos administrada y configura su cadena de conexión como variable de entorno.
 
 ## Preparar subida a GitHub
 
