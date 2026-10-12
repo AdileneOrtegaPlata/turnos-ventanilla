@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.angular/
+.venv/
+__pycache__/
+*.py[cod]
+backend/turnos.db
+.env
+
