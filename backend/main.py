@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 from datetime import date, datetime, timedelta
+import os
 from pathlib import Path
 import sqlite3
 from typing import Literal
@@ -8,7 +9,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-DB_PATH = Path(__file__).with_name("turnos.db")
+DB_PATH = Path(os.environ.get("TURNOS_DB_PATH", "/tmp/turnos.db" if os.getenv("VERCEL") else Path(__file__).with_name("turnos.db")))
 SERVICES = {"Depósitos", "Retiros", "Aclaraciones", "Pagos", "Atención preferente"}
 
 
